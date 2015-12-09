@@ -32,7 +32,14 @@ public class WebSocketDemo {
 		if (userName == null) {
 			userSession.getUserProperties().put("userName", message);
 			String welcome = "Hi you are connected as: "+message;
+			String bCast = message+" has entered the chat room";
 			userSession.getBasicRemote().sendText("{\"data\":\""+welcome+"\"}");
+			Iterator<Session> iterator = users.iterator();
+			while (iterator.hasNext()) {
+				iterator.next().getBasicRemote()
+						.sendText("{\"data\":\""+bCast+"\"}");
+
+			}
 		} else {
 			Iterator<Session> iterator = users.iterator();
 			while (iterator.hasNext()) {

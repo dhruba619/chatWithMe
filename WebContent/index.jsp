@@ -22,6 +22,9 @@
             	messageText.value="";
             	messageText.placeholder="";
             }
+            function clearChat(){
+            	messageTextArea.value="";
+            }
             
 </script>
 <body>
@@ -32,6 +35,7 @@
 		<br> 
 		<input id="messageText" placeholder="Enter your Name" type="text">
 		<input onclick="sendMessage()" value="Send" type="button">
+		<input onclick="clearChat()" value="Clear" type="button">
 
 	</div>
 	<div id="output"></div>
